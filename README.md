@@ -12,7 +12,7 @@ by adding `inet_aton` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:inet_aton, "~> 0.1.0"}
+    {:inet_aton, "~> 0.2.0"}
   ]
 end
 ```
@@ -22,5 +22,9 @@ end
 ```elixir
 require InetAton
 
-InetAton.convert("127.0.0.1")  # 2130706433
+ip = "127.0.0.1"
+
+InetAton.convert(ip)  # 2130706433 (hostlong)
+
+InetAton.get_bytes_in_network_byte_order(ip) # <<1, 0, 0, 127>>
 ```
